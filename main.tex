@@ -1,0 +1,131 @@
+\documentclass[]{article}
+\usepackage {amsmath}
+\usepackage[a4paper, total={7.3in, 10.3in}]{geometry}
+\usepackage{cleveref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[titletoc]{appendix}
+\usepackage{changes}
+\usepackage{soul}
+\usepackage{amssymb}
+%\usepackage{xcolor}
+\usepackage[x11names, rgb]{xcolor}
+%\usepackage[utf8]{inputenc}
+\usepackage{braket}
+\usepackage{ulem}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{amsmath}  
+\usepackage{amsfonts} 
+\usepackage{graphicx}
+\usepackage{amssymb} 
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{empheq}
+\usepackage{amsthm}
+ \usepackage{braket}
+ \usepackage{amsmath}
+\DeclareMathOperator\arctanh{arctanh}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\numberwithin{equation}{section}
+
+\def\epp{\epsilon^{\prime}}
+\def\ep{\epsilon}
+\def\vep{\varepsilon}
+\def\la{\langle}
+\def\ra{\rangle}
+\def\ppg{\pi^+\pi^-\gamma}
+\def\vp{{\bf p}}
+\def\ko{K^0}
+\def\kb{\bar{K^0}}
+\def\ka{\kappa}
+\def\al{\alpha}
+\def\ab{\bar{\alpha}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\wh{\widehat}
+
+
+\title{\textbf{Yukawa theories: self energy Integral}}
+\author{{Hariprashad Ravikumar}} 
+
+\date{(For Dr.Engelhardt's meeting June 2, 2022)}
+\begin{document}
+	\maketitle
+
+\section{IFD}
+The Yukawa theories spin-$\frac{1}{2}$ particle self energy with scalar loop integral,
+\begin{align}
+    -i\Sigma(p)&=(-ie)^2\int \frac{d^dk}{(2\pi)^d}\frac{i(\slashed{k}+m)}{(k^2-m^2+i\epsilon)}\frac{-i}{(p-k)^2-\lambda^2+i\epsilon}\\
+    &=-e^2\int \frac{d^dk}{(2\pi)^d}\frac{(\slashed{k}+m)}{(k^2-m^2+i\epsilon)}\frac{1}{(p-k)^2-\lambda^2+i\epsilon}
+\end{align}
+introducing Feynman parameter,
+\begin{align}
+\frac{(\slashed{k}+m)}{(k^2-m^2+i\epsilon)}\frac{1}{(p-k)^2-\lambda^2+i\epsilon}=\int_0^1dx\frac{(\slashed{k}+m)}{[k^2-2xk.p+xp^2-x\lambda^2-(1-x)m^2+i\epsilon]^2}
+\end{align}
+and with the change of variables $k\longrightarrow k+xp$ we find,\footnote{{https://www.physik.uzh.ch/dam/jcr:cd4d0e56-f132-4f0f-8baa-c0e863f29578/Solutions05.pdf}}
+\begin{align}
+    -i\Sigma(p)&=-e^2\int_0^1\int \frac{d^dk}{(2\pi)^d}\frac{\slashed{k}+x\slashed{p}+m}{[k^2-\Delta+i\epsilon]^2}
+\end{align}
+where, $\Delta=x\lambda^2+(1-x)m^2-x(1-x)p^2$.\\
+Now the integrand in $\slashed{k}$ is odd and vanishes, while the rest can be evaluated according
+to standard procedures described in Peskin $\&$ Schroeder, $\int\frac{d^dl}{(2\pi)^d}\frac{1}{(l^2-\Delta)^n}=\frac{(-1)^ni}{(4\pi)^{\frac{d}{2}}}\frac{\Gamma(n-\frac{d}{2})}{\Gamma(n)}\left(\frac{1}{\Delta}\right)^{n-\frac{d}{2}}$.
+\begin{align}
+    \int \frac{d^dk}{(2\pi)^d}\frac{1}{[k^2-\Delta+i\epsilon]^2}=\frac{i}{(4\pi)^\frac{d}{2}}\Gamma(2-\frac{d}{2})\Delta^{\frac{d}{2}-2}=\frac{i}{(4\pi)^{2-\zeta}}\Gamma(\zeta)\Delta^{-\zeta}
+\end{align}
+where, $\zeta=2-\frac{d}{2}$. Expanding at leading order around $\zeta=0$
+\begin{align}
+    \Gamma(\zeta)=\frac{1}{\zeta}+\mathcal{O}(1),~~x^{-\zeta}=1+\mathcal{O}(\zeta)
+\end{align}
+\begin{align}
+    -i\Sigma(p)&=\frac{-ie^2}{(4\pi)^2}\frac{1}{\zeta}\int_0^1dx(x\slashed{p}-m)+\mathcal{O}(1)=\frac{-ie^2}{(4\pi)^2}\frac{1}{\zeta}(\frac{\slashed{p}}{2}-m)+\mathcal{O}(1)
+\end{align}
+In ($1+1$), $\zeta=2-\frac{2}{2}=1$
+\begin{align}
+    -i\Sigma(p)&=(-ie)^2\int \frac{d^2k}{(2\pi)^2}\frac{i(\slashed{k}+m)}{(k^2-m^2+i\epsilon)}\frac{-i}{(p-k)^2-\lambda^2+i\epsilon}\\
+    \Aboxed{-i\Sigma(p)&=\frac{-ie^2}{(4\pi)^2}(\frac{\slashed{p}}{2}-m)+\mathcal{O}(1)}
+\end{align}
+
+\pagebreak
+\section{F.Lenz's $\epsilon$-coordinates (LFD)}
+On finite interval of momentum [$k^+(n)=\frac{2\pi}{L}n$], the integral will be,
+\begin{align}
+    -i\Sigma(p)=&-e^2\frac{1}{L}\sum_{k^+}\int_{-\infty}^{+\infty}\frac{dk^-}{(2\pi)}\frac{(\slashed{k}+m)}{(\frac{2\epsilon}{L}(k^{-})^2+2k^-k^+-m^2+i0)}\frac{1}{\frac{2\epsilon}{L}(p^--k^-)^2+2(p^+-k^+)(p^--k^-)-\lambda^2+i0}\\
+    =&\lim\limits_{|\Lambda| \to \infty}\frac{-e^2}{L}\sum_{k^+}\int_{-\Lambda}^{+\Lambda}\frac{dk^-}{(2\pi)}\frac{(\slashed{k}+m)}{\left(\frac{2\epsilon}{L}\left(k^-+\frac{Lk^+}{2\epsilon}\right)^2-\frac{L(k^{+})^2}{2\epsilon}-m^2+i0\right)}\frac{1}{\left(\frac{2\epsilon}{L}\left((p^--k^-)+\frac{L(p^+-k^+)}{2\epsilon}\right)^2-\frac{L((p^+-k^{+})^2}{2\epsilon}-\lambda^2+i0\right)}\nonumber
+\end{align}
+let, $\tilde{k}^-=\sqrt{\frac{2\epsilon}{L}}\left(k^-+\frac{Lk^+}{2\epsilon}\right)~\Longrightarrow~dk^-=\sqrt{\frac{L}{2\epsilon}}d\tilde{k}^-$ and also  $\tilde{p}^-=\sqrt{\frac{2\epsilon}{L}}\left(p^-+\frac{Lp^+}{2\epsilon}\right)$ then
+\begin{align}
+    -i\Sigma(p)=&\lim\limits_{|\Lambda| \to \infty}\frac{-e^2}{L}\sqrt{\frac{L}{2\epsilon}}\sum_{k^+}\int_{\sqrt{\frac{2\epsilon}{L}}(-\Lambda+\frac{Lk^+}{2\epsilon})}^{\sqrt{\frac{2\epsilon}{L}}(+\Lambda+\frac{Lk^+}{2\epsilon})}\frac{d\tilde{k}^-}{(2\pi)}\frac{(\slashed{k}+m)}{\left((\tilde{k}^-)^2-\left(\frac{L(k^{+})^2}{2\epsilon}+m^2\right)+i0\right)}\frac{1}{\left((\tilde{p}^--\tilde{k}^-)^2-\left(\frac{L(\tilde{p}^+-k^{+})^2}{2\epsilon}+\lambda^2\right)+i0\right)}
+\end{align}
+let, $\left(\frac{L(k^{+})^2}{2\epsilon}+m^2\right)=\tilde{m}^2$ and $\left(\frac{L(\tilde{p}^+-k^{+})^2}{2\epsilon}+\lambda^2\right)=\tilde{\lambda}^2$. 
+
+\begin{align}
+    -i\Sigma(p)=&\lim\limits_{|\Lambda| \to \infty}-e^2\frac{1}{L}\sqrt{\frac{L}{2\epsilon}}\sum_{k^+}\int_{\sqrt{\frac{2\epsilon}{L}}(-\Lambda+\frac{Lk^+}{2\epsilon})}^{\sqrt{\frac{2\epsilon}{L}}(+\Lambda+\frac{Lk^+}{2\epsilon})}\frac{d\tilde{k}^-}{(2\pi)}\frac{(\slashed{k}+m)}{\left((\tilde{k}^-)^2-\tilde{m}^2+i0\right)}\frac{1}{\left((\tilde{p}^--\tilde{k}^-)^2-\tilde{\lambda}^2+i0\right)}
+\end{align}
+Introducing the Feynman parameter,
+\begin{align}
+\frac{(\slashed{k}+m)}{\left((\tilde{k}^-)^2-\tilde{m}^2+i0\right)}\frac{1}{\left((\tilde{p}^--\tilde{k}^-)^2-\tilde{\lambda}^2+i0\right)}&=\int_0^1dx\frac{(\slashed{k}+m)}{[(\tilde{k}^-)^2-2x\tilde{k}^-.\tilde{p}^-+x(\tilde{p}^-)^2-x\tilde{\lambda}^2-(1-x)\tilde{m}^2+i0]^2}\\
+&=\int_0^1dx\frac{(\slashed{k}+m)}{[(\tilde{k}^-)^2-\tilde{\Delta}+i\epsilon]^2}
+\end{align}
+where, $\tilde{\Delta}=x\tilde{\lambda}^2+(1-x)\tilde{m}^2-x(1-x)(\tilde{p}^-)^2$.\\
+With the change of variables $k\longrightarrow k+xp$ we find,
+\begin{align}
+    -i\Sigma(p)&=\lim\limits_{|\Lambda| \to \infty}\frac{-e^2}{\sqrt{2\epsilon L}}\sum_{k^+}\int_0^1 dx\int_{\sqrt{\frac{2\epsilon}{L}}(-\Lambda+\frac{Lk^+}{2\epsilon})}^{\sqrt{\frac{2\epsilon}{L}}(+\Lambda+\frac{Lk^+}{2\epsilon})}\frac{d\tilde{k}^-}{(2\pi)}\frac{\slashed{k}+x\slashed{p}+m}{[(\tilde{k}^-)^2-\tilde{\Delta}+i\epsilon]^2}
+\end{align}
+Now the integrand in $\slashed{k}$ is odd and vanishes, while the rest can be evaluated as
+\begin{align}
+     \int_{\sqrt{\frac{2\epsilon}{L}}(-\Lambda+\frac{Lk^+}{2\epsilon})}^{\sqrt{\frac{2\epsilon}{L}}(+\Lambda+\frac{Lk^+}{2\epsilon})}\frac{d\tilde{k}^-}{(2\pi)}\frac{1}{[(\tilde{k}^-)^2-\tilde{\Delta}+i\epsilon]^2}=
+\end{align}
+
+
+
+\end{document}
