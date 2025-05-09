@@ -1,0 +1,1406 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     55663,       1397]
+NotebookOptionsPosition[     51625,       1270]
+NotebookOutlinePosition[     53222,       1320]
+CellTagsIndexPosition[     52894,       1308]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Riemann Sums: A Simple Illustration", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.3712008404420433`*^9, 3.371201634267458*^9, 
+   3.3712019376831036`*^9, {3.3712022519164586`*^9, 3.371202255010288*^9}, {
+   3.371309124546875*^9, 3.371309125421875*^9}, {3.378719799579855*^9, 
+   3.3787198114079046`*^9}, {3.4095852578339987`*^9, 3.4095852580371227`*^9}},
+ 
+ CellID->700863240],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"leftRiemannSum", "[", 
+   RowBox[{"f_", ",", 
+    RowBox[{"{", 
+     RowBox[{"x_", ",", "a_", ",", "b_"}], "}"}], ",", "n_"}], "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"h", "=", 
+      FractionBox[
+       RowBox[{"b", "-", "a"}], "n"]}], "}"}], ",", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"r", "=", "0"}], 
+      RowBox[{"n", "-", "1"}]], 
+     RowBox[{"N", "[", 
+      RowBox[{
+       RowBox[{"h", " ", "f"}], "/.", 
+       RowBox[{"x", "\[Rule]", 
+        RowBox[{"a", "+", 
+         RowBox[{"h", " ", "r"}]}]}]}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.35962141103125*^9, 3.3596216174375*^9}, {
+  3.35962165075*^9, 3.35962172803125*^9}},
+ CellID->548438907],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"leftRiemannSumDiagram", "[", 
+   RowBox[{"f_", ",", 
+    RowBox[{"{", 
+     RowBox[{"x_", ",", "a_", ",", "b_"}], "}"}], ",", "n_", ",", "opts___"}],
+    "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"h", "=", 
+       FractionBox[
+        RowBox[{"b", "-", "a"}], "n"]}], ",", 
+      RowBox[{"s", "=", 
+       RowBox[{"leftRiemannSum", "[", 
+        RowBox[{"f", ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", "n"}], "]"}]}]}], 
+     "}"}], ",", 
+    RowBox[{"Plot", "[", 
+     RowBox[{"f", ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", "opts", ",", 
+      RowBox[{"Prolog", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Pink", ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Polygon", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", "r"}]}], ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", " ", "+", " ", 
+                 RowBox[{"h", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"r", "+", "1"}], ")"}]}]}], ",", "0"}], "}"}], ",",
+               
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"r", "+", "1"}], ")"}]}]}], ",", 
+                RowBox[{"f", "/.", 
+                 RowBox[{"x", "\[Rule]", 
+                  RowBox[{"a", "+", 
+                   RowBox[{"h", " ", "r"}]}]}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", "r"}]}], ",", 
+                RowBox[{"f", "/.", 
+                 RowBox[{"x", "\[Rule]", 
+                  RowBox[{"a", "+", 
+                   RowBox[{"h", " ", "r"}]}]}]}]}], "}"}]}], "}"}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"r", ",", "0", ",", 
+             RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}], ",", "Black", ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Line", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", "r"}]}], ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", " ", "+", " ", 
+                 RowBox[{"h", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"r", "+", "1"}], ")"}]}]}], ",", "0"}], "}"}], ",",
+               
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"r", "+", "1"}], ")"}]}]}], ",", 
+                RowBox[{"f", "/.", 
+                 RowBox[{"x", "\[Rule]", 
+                  RowBox[{"a", "+", 
+                   RowBox[{"h", " ", "r"}]}]}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", "r"}]}], ",", 
+                RowBox[{"f", "/.", 
+                 RowBox[{"x", "\[Rule]", 
+                  RowBox[{"a", "+", 
+                   RowBox[{"h", " ", "r"}]}]}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"a", "+", 
+                 RowBox[{"h", " ", "r"}]}], ",", "0"}], "}"}]}], "}"}], "]"}],
+            ",", 
+           RowBox[{"{", 
+            RowBox[{"r", ",", "0", ",", 
+             RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}]}], "}"}]}], ",", 
+      RowBox[{"PlotLabel", "\[Rule]", 
+       RowBox[{"Style", "[", 
+        RowBox[{
+         RowBox[{"\"\<sum = \>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"NumberForm", "[", 
+            RowBox[{"s", ",", 
+             RowBox[{"{", 
+              RowBox[{"6", ",", "4"}], "}"}], ",", 
+             RowBox[{"NumberPadding", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"\"\< \>\"", ",", "\"\<0\>\""}], "}"}]}], ",", 
+             RowBox[{"ExponentFunction", "\[Rule]", 
+              RowBox[{"(", 
+               RowBox[{"Null", "&"}], ")"}]}]}], "]"}], "]"}]}], ",", 
+         "\"\<Label\>\""}], "]"}]}], ",", 
+      RowBox[{"ImagePadding", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"25", ",", "25"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"25", ",", "30"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"500", ",", "300"}], "}"}]}]}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.35962141103125*^9, 3.3596216174375*^9}, {
+  3.35962165075*^9, 3.35962172803125*^9}, {3.3596217625625*^9, 
+  3.3596219823125*^9}, {3.3596220540625*^9, 3.35962206717188*^9}, {
+  3.35962213814063*^9, 3.35962219428125*^9}, {3.35962222828125*^9, 
+  3.35962235248438*^9}, {3.378741128800533*^9, 3.378741198206783*^9}, {
+  3.3787413328474073`*^9, 3.3787413490974073`*^9}, {3.378741482144283*^9, 
+  3.3787414904724073`*^9}, {3.378741565738033*^9, 3.3787415851599073`*^9}, {
+  3.3816805430538516`*^9, 3.3816805431944766`*^9}, {3.381682462609375*^9, 
+  3.381682464015625*^9}},
+ CellID->682590137]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"a", "\[GreaterEqual]", "b"}], ",", 
+      RowBox[{"a", "=", 
+       RowBox[{"b", "-", ".001"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"a", "<", "0"}], "&&", 
+       RowBox[{"b", ">", ".001"}]}], ",", 
+      RowBox[{"a", "=", "0"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"leftRiemannSumDiagram", "[", 
+     RowBox[{"f", ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", "n", ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"2", " ", "Pi"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "5"}], "}"}], ",", "2", ",", "50", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", 
+       RowBox[{"Sin", "[", "x", "]"}], ",", "\"\<function\>\""}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", "x", "]"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{"Sin", "[", "x", "]"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Cos", "[", "x", "]"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{"Cos", "[", "x", "]"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"x", "^", "2"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{"x", "^", "2"}], "]"}]}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0", ",", "\"\<min\>\""}], "}"}], ",", "0", ",", "b", 
+     ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", 
+       RowBox[{"\[Pi]", "/", "2"}], ",", "\"\<max\>\""}], "}"}], ",", "0", 
+     ",", 
+     RowBox[{"2", " ", "Pi"}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.3712019763884964`*^9, 3.371202278964026*^9, {
+   3.3787410897224073`*^9, 3.3787411013786573`*^9}, {3.378741224519283*^9, 
+   3.3787413031911573`*^9}, {3.378741372300533*^9, 3.378741454425533*^9}, {
+   3.3787415018161573`*^9, 3.3787415251599073`*^9}, {3.3816805374288516`*^9, 
+   3.3816805376319766`*^9}, {3.38168238359375*^9, 3.381682422265625*^9}, {
+   3.3828791955845995`*^9, 3.3828792157408495`*^9}, {3.38444452534375*^9, 
+   3.384444526140625*^9}, {3.38444462115625*^9, 3.384444687234375*^9}, {
+   3.384444736390625*^9, 3.384444740796875*^9}},
+ CellID->204841715],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, $CellContext`b$$ = Rational[1, 2] 
+    Pi, $CellContext`f$$ = Sin[$CellContext`x], $CellContext`n$$ = 5, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 5}, 2, 50, 1}, {{
+       Hold[$CellContext`f$$], 
+       Sin[$CellContext`x], "function"}, {
+      Sin[$CellContext`x] -> TraditionalForm[
+         Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+         Cos[$CellContext`x]], $CellContext`x^2 -> 
+       TraditionalForm[$CellContext`x^2]}}, {{
+       Hold[$CellContext`a$$], 0, "min"}, 0, 
+      Dynamic[$CellContext`b$$]}, {{
+       Hold[$CellContext`b$$], Rational[1, 2] Pi, "max"}, 0, 2 Pi}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$521603$$ = 0, $CellContext`f$521604$$ = 
+    False, $CellContext`a$521605$$ = 0, $CellContext`b$521606$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0, $CellContext`b$$ = 
+        Rational[1, 2] Pi, $CellContext`f$$ = 
+        Sin[$CellContext`x], $CellContext`n$$ = 5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$521603$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$521604$$, False], 
+        Hold[$CellContext`a$$, $CellContext`a$521605$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$521606$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`a$$ >= $CellContext`b$$, $CellContext`a$$ = \
+$CellContext`b$$ - 0.001]; If[
+         And[$CellContext`a$$ < 0, $CellContext`b$$ > 
+          0.001], $CellContext`a$$ = 
+         0]; $CellContext`leftRiemannSumDiagram[$CellContext`f$$, \
+{$CellContext`x, $CellContext`a$$, $CellContext`b$$}, $CellContext`n$$, 
+         PlotRange -> {{0, 2 Pi}, {-1, 1}}]), 
+      "Specifications" :> {{{$CellContext`n$$, 5}, 2, 50, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`f$$, 
+          Sin[$CellContext`x], "function"}, {
+         Sin[$CellContext`x] -> TraditionalForm[
+            Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+            Cos[$CellContext`x]], $CellContext`x^2 -> 
+          TraditionalForm[$CellContext`x^2]}}, {{$CellContext`a$$, 0, "min"}, 
+         0, 
+         Dynamic[$CellContext`b$$], Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, Rational[1, 2] Pi, "max"}, 0, 2 Pi, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{546., {230., 235.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`leftRiemannSumDiagram[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          BlankNullSequence[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n, $CellContext`s = \
+$CellContext`leftRiemannSum[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`n]}, 
+         Plot[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`opts, Prolog -> {Pink, 
+            Table[
+             
+             Polygon[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}}], {$CellContext`r, 0, $CellContext`n - 1}], 
+            Black, 
+            Table[
+             
+             Line[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 0}}], {$CellContext`r, 0, $CellContext`n - 1}]}, PlotLabel -> 
+          Style[
+            StringJoin["sum = ", 
+             ToString[
+              
+              NumberForm[$CellContext`s, {6, 4}, NumberPadding -> {" ", "0"}, 
+               ExponentFunction -> (Null& )]]], "Label"], 
+          ImagePadding -> {{25, 25}, {25, 30}}, 
+          ImageSize -> {500, 300}]], $CellContext`leftRiemannSum[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n}, 
+         Sum[
+          N[
+           
+           ReplaceAll[$CellContext`h $CellContext`f, $CellContext`x -> \
+$CellContext`a + $CellContext`h $CellContext`r]], {$CellContext`r, 
+           0, $CellContext`n - 1}]], Attributes[PlotRange] = {ReadProtected}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->99721076]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "A Riemann sum is an approximation to the area between a curve and the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " axis, made by adding together the areas of a set of rectangles. A \
+summation calculation is involved, of the form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Sum]", 
+    RowBox[{
+     RowBox[{"f", "(", "x", ")"}], "\[Delta]x"}]}], TraditionalForm]], 
+  "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["\[Delta]x", TraditionalForm]], "InlineMath"],
+ " is the width of each rectangle. The limit of the Riemann sum as ",
+ Cell[BoxData[
+  FormBox["\[Delta]x", TraditionalForm]], "InlineMath"],
+ " approaches zero is the (Riemann) integral of the function. This \
+manipulation uses a left Riemann sum, in which the value of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "x", ")"}], TraditionalForm]], "InlineMath"],
+ " that is used is the one at the left edge of each rectangle. It is easy to \
+adapt the code for right Riemann sums and for the trapezoidal rule; try it!"
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.378741660925533*^9, 3.378741696175533*^9}, {
+   3.38168232446875*^9, 3.38168236215625*^9}, {3.382469379138668*^9, 
+   3.3824693799199233`*^9}},
+ CellID->456793330]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, $CellContext`b$$ = 
+    6.283185307179586, $CellContext`f$$ = 
+    Sin[$CellContext`x], $CellContext`n$$ = 50, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 50}, 2, 50, 1}, {{
+       Hold[$CellContext`f$$], 
+       Sin[$CellContext`x], "function"}, {
+      Sin[$CellContext`x] -> TraditionalForm[
+         Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+         Cos[$CellContext`x]], $CellContext`x^2 -> 
+       TraditionalForm[$CellContext`x^2]}}, {{
+       Hold[$CellContext`a$$], 0, "min"}, 0, 
+      Dynamic[$CellContext`b$$]}, {{
+       Hold[$CellContext`b$$], 6.283185307179586, "max"}, 0, 2 Pi}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$521673$$ = 0, $CellContext`f$521674$$ = 
+    False, $CellContext`a$521675$$ = 0, $CellContext`b$521676$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0, $CellContext`b$$ = 
+        6.283185307179586, $CellContext`f$$ = 
+        Sin[$CellContext`x], $CellContext`n$$ = 50}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$521673$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$521674$$, False], 
+        Hold[$CellContext`a$$, $CellContext`a$521675$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$521676$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`a$$ >= $CellContext`b$$, $CellContext`a$$ = \
+$CellContext`b$$ - 0.001]; If[
+         And[$CellContext`a$$ < 0, $CellContext`b$$ > 
+          0.001], $CellContext`a$$ = 
+         0]; $CellContext`leftRiemannSumDiagram[$CellContext`f$$, \
+{$CellContext`x, $CellContext`a$$, $CellContext`b$$}, $CellContext`n$$, 
+         PlotRange -> {{0, 2 Pi}, {-1, 1}}]), 
+      "Specifications" :> {{{$CellContext`n$$, 50}, 2, 50, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`f$$, 
+          Sin[$CellContext`x], "function"}, {
+         Sin[$CellContext`x] -> TraditionalForm[
+            Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+            Cos[$CellContext`x]], $CellContext`x^2 -> 
+          TraditionalForm[$CellContext`x^2]}}, {{$CellContext`a$$, 0, "min"}, 
+         0, 
+         Dynamic[$CellContext`b$$], Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, 6.283185307179586, "max"}, 0, 2 Pi, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{544., {231., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`leftRiemannSumDiagram[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          BlankNullSequence[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n, $CellContext`s = \
+$CellContext`leftRiemannSum[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`n]}, 
+         Plot[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`opts, Prolog -> {Pink, 
+            Table[
+             
+             Polygon[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}}], {$CellContext`r, 0, $CellContext`n - 1}], 
+            Black, 
+            Table[
+             
+             Line[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 0}}], {$CellContext`r, 0, $CellContext`n - 1}]}, PlotLabel -> 
+          Style[
+            StringJoin["sum = ", 
+             ToString[
+              
+              NumberForm[$CellContext`s, {6, 4}, NumberPadding -> {" ", "0"}, 
+               ExponentFunction -> (Null& )]]], "Label"], 
+          ImagePadding -> {{25, 25}, {25, 30}}, 
+          ImageSize -> {500, 300}]], $CellContext`leftRiemannSum[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n}, 
+         Sum[
+          N[
+           
+           ReplaceAll[$CellContext`h $CellContext`f, $CellContext`x -> \
+$CellContext`a + $CellContext`h $CellContext`r]], {$CellContext`r, 
+           0, $CellContext`n - 1}]], Attributes[PlotRange] = {ReadProtected}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->47337253]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, $CellContext`b$$ = Rational[1, 2] 
+    Pi, $CellContext`f$$ = Sin[$CellContext`x], $CellContext`n$$ = 5, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 5}, 2, 50, 1}, {{
+       Hold[$CellContext`f$$], 
+       Sin[$CellContext`x], "function"}, {
+      Sin[$CellContext`x] -> TraditionalForm[
+         Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+         Cos[$CellContext`x]], $CellContext`x^2 -> 
+       TraditionalForm[$CellContext`x^2]}}, {{
+       Hold[$CellContext`a$$], 0, "min"}, 0, 
+      Dynamic[$CellContext`b$$]}, {{
+       Hold[$CellContext`b$$], Rational[1, 2] Pi, "max"}, 0, 2 Pi}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$521743$$ = 0, $CellContext`f$521744$$ = 
+    False, $CellContext`a$521745$$ = 0, $CellContext`b$521746$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0, $CellContext`b$$ = 
+        Rational[1, 2] Pi, $CellContext`f$$ = 
+        Sin[$CellContext`x], $CellContext`n$$ = 5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$521743$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$521744$$, False], 
+        Hold[$CellContext`a$$, $CellContext`a$521745$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$521746$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`a$$ >= $CellContext`b$$, $CellContext`a$$ = \
+$CellContext`b$$ - 0.001]; If[
+         And[$CellContext`a$$ < 0, $CellContext`b$$ > 
+          0.001], $CellContext`a$$ = 
+         0]; $CellContext`leftRiemannSumDiagram[$CellContext`f$$, \
+{$CellContext`x, $CellContext`a$$, $CellContext`b$$}, $CellContext`n$$, 
+         PlotRange -> {{0, 2 Pi}, {-1, 1}}]), 
+      "Specifications" :> {{{$CellContext`n$$, 5}, 2, 50, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`f$$, 
+          Sin[$CellContext`x], "function"}, {
+         Sin[$CellContext`x] -> TraditionalForm[
+            Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+            Cos[$CellContext`x]], $CellContext`x^2 -> 
+          TraditionalForm[$CellContext`x^2]}}, {{$CellContext`a$$, 0, "min"}, 
+         0, 
+         Dynamic[$CellContext`b$$], Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, Rational[1, 2] Pi, "max"}, 0, 2 Pi, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{544., {231., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`leftRiemannSumDiagram[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          BlankNullSequence[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n, $CellContext`s = \
+$CellContext`leftRiemannSum[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`n]}, 
+         Plot[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`opts, Prolog -> {Pink, 
+            Table[
+             
+             Polygon[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}}], {$CellContext`r, 0, $CellContext`n - 1}], 
+            Black, 
+            Table[
+             
+             Line[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 0}}], {$CellContext`r, 0, $CellContext`n - 1}]}, PlotLabel -> 
+          Style[
+            StringJoin["sum = ", 
+             ToString[
+              
+              NumberForm[$CellContext`s, {6, 4}, NumberPadding -> {" ", "0"}, 
+               ExponentFunction -> (Null& )]]], "Label"], 
+          ImagePadding -> {{25, 25}, {25, 30}}, 
+          ImageSize -> {500, 300}]], $CellContext`leftRiemannSum[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n}, 
+         Sum[
+          N[
+           
+           ReplaceAll[$CellContext`h $CellContext`f, $CellContext`x -> \
+$CellContext`a + $CellContext`h $CellContext`r]], {$CellContext`r, 
+           0, $CellContext`n - 1}]], Attributes[PlotRange] = {ReadProtected}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->401727612],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, $CellContext`b$$ = Rational[1, 2] 
+    Pi, $CellContext`f$$ = Sin[$CellContext`x], $CellContext`n$$ = 14, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 14}, 2, 50, 1}, {{
+       Hold[$CellContext`f$$], 
+       Sin[$CellContext`x], "function"}, {
+      Sin[$CellContext`x] -> TraditionalForm[
+         Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+         Cos[$CellContext`x]], $CellContext`x^2 -> 
+       TraditionalForm[$CellContext`x^2]}}, {{
+       Hold[$CellContext`a$$], 0, "min"}, 0, 
+      Dynamic[$CellContext`b$$]}, {{
+       Hold[$CellContext`b$$], Rational[1, 2] Pi, "max"}, 0, 2 Pi}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$521813$$ = 0, $CellContext`f$521814$$ = 
+    False, $CellContext`a$521815$$ = 0, $CellContext`b$521816$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0, $CellContext`b$$ = 
+        Rational[1, 2] Pi, $CellContext`f$$ = 
+        Sin[$CellContext`x], $CellContext`n$$ = 14}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$521813$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$521814$$, False], 
+        Hold[$CellContext`a$$, $CellContext`a$521815$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$521816$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`a$$ >= $CellContext`b$$, $CellContext`a$$ = \
+$CellContext`b$$ - 0.001]; If[
+         And[$CellContext`a$$ < 0, $CellContext`b$$ > 
+          0.001], $CellContext`a$$ = 
+         0]; $CellContext`leftRiemannSumDiagram[$CellContext`f$$, \
+{$CellContext`x, $CellContext`a$$, $CellContext`b$$}, $CellContext`n$$, 
+         PlotRange -> {{0, 2 Pi}, {-1, 1}}]), 
+      "Specifications" :> {{{$CellContext`n$$, 14}, 2, 50, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`f$$, 
+          Sin[$CellContext`x], "function"}, {
+         Sin[$CellContext`x] -> TraditionalForm[
+            Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+            Cos[$CellContext`x]], $CellContext`x^2 -> 
+          TraditionalForm[$CellContext`x^2]}}, {{$CellContext`a$$, 0, "min"}, 
+         0, 
+         Dynamic[$CellContext`b$$], Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, Rational[1, 2] Pi, "max"}, 0, 2 Pi, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{544., {231., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`leftRiemannSumDiagram[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          BlankNullSequence[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n, $CellContext`s = \
+$CellContext`leftRiemannSum[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`n]}, 
+         Plot[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`opts, Prolog -> {Pink, 
+            Table[
+             
+             Polygon[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}}], {$CellContext`r, 0, $CellContext`n - 1}], 
+            Black, 
+            Table[
+             
+             Line[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 0}}], {$CellContext`r, 0, $CellContext`n - 1}]}, PlotLabel -> 
+          Style[
+            StringJoin["sum = ", 
+             ToString[
+              
+              NumberForm[$CellContext`s, {6, 4}, NumberPadding -> {" ", "0"}, 
+               ExponentFunction -> (Null& )]]], "Label"], 
+          ImagePadding -> {{25, 25}, {25, 30}}, 
+          ImageSize -> {500, 300}]], $CellContext`leftRiemannSum[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n}, 
+         Sum[
+          N[
+           
+           ReplaceAll[$CellContext`h $CellContext`f, $CellContext`x -> \
+$CellContext`a + $CellContext`h $CellContext`r]], {$CellContext`r, 
+           0, $CellContext`n - 1}]], Attributes[PlotRange] = {ReadProtected}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->118475795],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0, $CellContext`b$$ = Rational[1, 2] 
+    Pi, $CellContext`f$$ = Sin[$CellContext`x], $CellContext`n$$ = 24, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 24}, 2, 50, 1}, {{
+       Hold[$CellContext`f$$], 
+       Sin[$CellContext`x], "function"}, {
+      Sin[$CellContext`x] -> TraditionalForm[
+         Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+         Cos[$CellContext`x]], $CellContext`x^2 -> 
+       TraditionalForm[$CellContext`x^2]}}, {{
+       Hold[$CellContext`a$$], 0, "min"}, 0, 
+      Dynamic[$CellContext`b$$]}, {{
+       Hold[$CellContext`b$$], Rational[1, 2] Pi, "max"}, 0, 2 Pi}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`n$521883$$ = 0, $CellContext`f$521884$$ = 
+    False, $CellContext`a$521885$$ = 0, $CellContext`b$521886$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0, $CellContext`b$$ = 
+        Rational[1, 2] Pi, $CellContext`f$$ = 
+        Sin[$CellContext`x], $CellContext`n$$ = 24}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$521883$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$521884$$, False], 
+        Hold[$CellContext`a$$, $CellContext`a$521885$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$521886$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       If[$CellContext`a$$ >= $CellContext`b$$, $CellContext`a$$ = \
+$CellContext`b$$ - 0.001]; If[
+         And[$CellContext`a$$ < 0, $CellContext`b$$ > 
+          0.001], $CellContext`a$$ = 
+         0]; $CellContext`leftRiemannSumDiagram[$CellContext`f$$, \
+{$CellContext`x, $CellContext`a$$, $CellContext`b$$}, $CellContext`n$$, 
+         PlotRange -> {{0, 2 Pi}, {-1, 1}}]), 
+      "Specifications" :> {{{$CellContext`n$$, 24}, 2, 50, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`f$$, 
+          Sin[$CellContext`x], "function"}, {
+         Sin[$CellContext`x] -> TraditionalForm[
+            Sin[$CellContext`x]], Cos[$CellContext`x] -> TraditionalForm[
+            Cos[$CellContext`x]], $CellContext`x^2 -> 
+          TraditionalForm[$CellContext`x^2]}}, {{$CellContext`a$$, 0, "min"}, 
+         0, 
+         Dynamic[$CellContext`b$$], Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, Rational[1, 2] Pi, "max"}, 0, 2 Pi, 
+         Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{544., {231., 236.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`leftRiemannSumDiagram[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`opts, 
+          BlankNullSequence[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n, $CellContext`s = \
+$CellContext`leftRiemannSum[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`n]}, 
+         Plot[$CellContext`f, {$CellContext`x, $CellContext`a, \
+$CellContext`b}, $CellContext`opts, Prolog -> {Pink, 
+            Table[
+             
+             Polygon[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}}], {$CellContext`r, 0, $CellContext`n - 1}], 
+            Black, 
+            Table[
+             
+             Line[{{$CellContext`a + $CellContext`h $CellContext`r, 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                0}, {$CellContext`a + $CellContext`h ($CellContext`r + 1), 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 
+                
+                ReplaceAll[$CellContext`f, $CellContext`x -> $CellContext`a + \
+$CellContext`h $CellContext`r]}, {$CellContext`a + $CellContext`h \
+$CellContext`r, 0}}], {$CellContext`r, 0, $CellContext`n - 1}]}, PlotLabel -> 
+          Style[
+            StringJoin["sum = ", 
+             ToString[
+              
+              NumberForm[$CellContext`s, {6, 4}, NumberPadding -> {" ", "0"}, 
+               ExponentFunction -> (Null& )]]], "Label"], 
+          ImagePadding -> {{25, 25}, {25, 30}}, 
+          ImageSize -> {500, 300}]], $CellContext`leftRiemannSum[
+         Pattern[$CellContext`f, 
+          Blank[]], {
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`b, 
+           Blank[]]}, 
+         Pattern[$CellContext`n, 
+          Blank[]]] := 
+       With[{$CellContext`h = ($CellContext`b - \
+$CellContext`a)/$CellContext`n}, 
+         Sum[
+          N[
+           
+           ReplaceAll[$CellContext`h $CellContext`f, $CellContext`x -> \
+$CellContext`a + $CellContext`h $CellContext`r]], {$CellContext`r, 
+           0, $CellContext`n - 1}]], Attributes[PlotRange] = {ReadProtected}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->152790677]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["integration", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3712015543243303`*^9, 3.3712015586840124`*^9}, {
+   3.3712021854291115`*^9, 3.371202188397994*^9}, {3.371202366263136*^9, 
+   3.3712023681694345`*^9}},
+ CellID->106188693],
+
+Cell["definite integration", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.371201560199744*^9, 3.3712015632624598`*^9}, {
+   3.3712021940857487`*^9, 3.3712021951795483`*^9}, {3.3712023698569775`*^9, 
+   3.371202374778979*^9}},
+ CellID->156512149],
+
+Cell["Riemann sum", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.371201563653112*^9, 3.3712015659501486`*^9}, {
+   3.371201792952313*^9, 3.3712017944993167`*^9}, {3.3712021976015315`*^9, 
+   3.3712022011641912`*^9}, {3.3712023787478304`*^9, 3.371202380607253*^9}},
+ CellID->31111652],
+
+Cell["education", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3712015664189315`*^9, 3.3712015698254213`*^9}, {
+   3.371202206523806*^9, 3.3712022078207393`*^9}},
+ CellID->282168367]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Riemann Sum",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/RiemannSum.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.382469449779745*^9, 3.382469449779745*^9}},
+ CellID->399600805]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Phil Ramsden",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Phil+Ramsden"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Phil+Ramsden"]
+}], "Author",
+ CellChangeTimes->{3.35696210375764*^9, 3.3787417334724073`*^9},
+ CellID->154434168]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{679, 573},
+WindowMargins->{{257, -144}, {Automatic, 35}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (January 9, 2008)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[44297, 1057, 310, 8, 70, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[44610, 1067, 677, 16, 70, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[45290, 1085, 339, 11, 70, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[45632, 1098, 636, 15, 70, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[46271, 1115, 843, 21, 70, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[47117, 1138, 303, 8, 70, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[47423, 1148, 1411, 31, 70, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[48837, 1181, 881, 21, 70, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 51995, 1281},
+ {"RotateAndZoomIn3D", 52104, 1284},
+ {"DragLocators", 52214, 1287},
+ {"CreateAndDeleteLocators", 52330, 1290},
+ {"SliderZoom", 52444, 1293},
+ {"GamepadControls", 52550, 1296},
+ {"AutomaticAnimation", 52663, 1299},
+ {"BookmarkAnimation", 52780, 1302}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 396, 7, 74, "DemoTitle",
+ CellID->700863240],
+Cell[CellGroupData[{
+Cell[1011, 34, 33, 0, 156, "InitializationSection"],
+Cell[1047, 36, 772, 24, 70, "Input",
+ CellID->548438907],
+Cell[1822, 62, 5452, 142, 70, "Input",
+ CellID->682590137]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[7311, 209, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[7365, 213, 3123, 81, 70, "Input",
+ CellID->204841715],
+Cell[10491, 296, 6437, 139, 477, "Output",
+ CellID->99721076]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16974, 441, 36, 0, 70, "ManipulateCaptionSection"],
+Cell[17013, 443, 1268, 30, 70, "ManipulateCaption",
+ CellID->456793330]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18318, 478, 28, 0, 70, "ThumbnailSection"],
+Cell[18349, 480, 6446, 140, 70, "Output",
+ CellID->47337253]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24832, 625, 28, 0, 70, "SnapshotsSection"],
+Cell[24863, 627, 6438, 139, 70, "Output",
+ CellID->401727612],
+Cell[31304, 768, 6442, 139, 70, "Output",
+ CellID->118475795],
+Cell[37749, 909, 6442, 139, 70, "Output",
+ CellID->152790677]
+}, Open  ]],
+Cell[44206, 1051, 26, 0, 70, "DetailsSection"],
+Cell[CellGroupData[{
+Cell[44257, 1055, 37, 0, 70, "ControlSuggestionsSection"],
+Cell[44297, 1057, 310, 8, 70, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[44610, 1067, 677, 16, 70, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[45290, 1085, 339, 11, 70, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[45632, 1098, 636, 15, 70, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[46271, 1115, 843, 21, 70, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[47117, 1138, 303, 8, 70, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[47423, 1148, 1411, 31, 70, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[48837, 1181, 881, 21, 70, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49755, 1207, 30, 0, 70, "SearchTermsSection"],
+Cell[49788, 1209, 252, 5, 70, "SearchTerms",
+ CellID->106188693],
+Cell[50043, 1216, 261, 5, 70, "SearchTerms",
+ CellID->156512149],
+Cell[50307, 1223, 299, 5, 70, "SearchTerms",
+ CellID->31111652],
+Cell[50609, 1230, 198, 4, 70, "SearchTerms",
+ CellID->282168367]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50844, 1239, 31, 0, 70, "RelatedLinksSection"],
+Cell[50878, 1241, 273, 7, 70, "RelatedLinks",
+ CellID->399600805]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51188, 1253, 25, 0, 70, "AuthorSection"],
+Cell[51216, 1255, 381, 11, 70, "Author",
+ CellID->154434168]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

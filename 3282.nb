@@ -1,0 +1,1985 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     75889,       1977]
+NotebookOptionsPosition[     73690,       1929]
+NotebookOutlinePosition[     74412,       1952]
+CellTagsIndexPosition[     74369,       1949]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Zero-Mode Integral Plots",
+  FontFamily->"Times New Roman",
+  FontWeight->"Regular"],
+ StyleBox["\n",
+  FontFamily->"Times New Roman",
+  FontSize->13,
+  FontWeight->"Regular"],
+ StyleBox["Hariprashad Ravikumar", "Subtitle",
+  FontFamily->"Times New Roman",
+  FontSize->22,
+  FontWeight->"Regular"],
+ StyleBox["\[LineSeparator]",
+  FontFamily->"Times New Roman",
+  FontSize->22,
+  FontWeight->"Regular"],
+ StyleBox["(For Dr. Burkardt\[CloseCurlyQuote]s meeting Feb 23, 2022)\n\n", 
+  "Subtitle",
+  FontFamily->"Times New Roman",
+  FontSize->22,
+  FontWeight->"Regular"],
+ StyleBox["F.Lenz\[CloseCurlyQuote]s ", "Subsubsection",
+  FontFamily->"Times New Roman",
+  FontSize->25,
+  FontWeight->"Bold"],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   TemplateBox[<|
+    "boxes" -> FormBox["\[Epsilon]", TraditionalForm], "errors" -> {}, 
+     "input" -> "$\\epsilon$", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]], "Subsubsection",
+  FontFamily->"Times New Roman",
+  FontSize->25,
+  FontWeight->"Bold",ExpressionUUID->"1af1bd59-626a-4ed4-8df5-8ee4991ff2f4"], 
+  "Subsubsection"],
+ StyleBox["-coordinates (LFD)\n", "Subsubsection",
+  FontFamily->"Times New Roman",
+  FontSize->25,
+  FontWeight->"Bold"],
+ StyleBox["\n", "Chapter",
+  FontFamily->"Times New Roman",
+  FontSize->25,
+  FontWeight->"Bold"],
+ StyleBox["Consider  a  simple tadpole with a mass  insertion  (to  make  it \
+convergent)  in   1  +  1  dimensions \n\n", "Text",
+  FontFamily->"Times New Roman",
+  FontSize->18,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox["\[CapitalSigma]", "~"], "\[LongEqual]", 
+         SubsuperscriptBox["\[Integral]", 
+          RowBox[{"-", "\[Infinity]"}], 
+          RowBox[{"+", "\[Infinity]"}]], 
+         FractionBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["d", "TI"], "2"], 
+            StyleBox["k", "TI"]}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+             RowBox[{"2", "\[Pi]"}], ")"}], "2"]], 
+         FractionBox["1", 
+          SuperscriptBox[
+           RowBox[{"(", 
+             RowBox[{
+               SuperscriptBox[
+                StyleBox["k", "TI"], "2"], "-", 
+               SuperscriptBox[
+                StyleBox["m", "TI"], "2"], "+", 
+               StyleBox["i", "TI"], "0"}], ")"}], "2"]], "\[LongEqual]", 
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", "\[Pi]", 
+            SuperscriptBox[
+             StyleBox["m", "TI"], "2"]}]]}], TraditionalForm], "errors" -> {},
+      "input" -> 
+     "\\tilde{\\Sigma}=\\int_{-\\infty}^{+\\infty}\\frac{d^2k}{(2\\pi)^2}\\\
+frac{1}{(k^2-m^2+i0)^2}=\\frac{i}{4\\pi m^2}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->16,
+  FontColor->GrayLevel[0],ExpressionUUID->
+  "b6290211-3d3e-4b58-bbbd-8d16f90a11e6"],
+ StyleBox["\n\n",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ StyleBox["On a finite interval (with ", "Text",
+  FontFamily->"Times New Roman",
+  FontSize->18,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0]],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   TemplateBox[<|
+    "boxes" -> FormBox["\[Epsilon]", TraditionalForm], "errors" -> {}, 
+     "input" -> "\\epsilon", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]], "Text",
+  FontSize->18,
+  FontColor->GrayLevel[0],ExpressionUUID->
+  "d23f60ba-059b-4c72-be01-75b58b9932be"], "Text"],
+ StyleBox["-", "Text",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ StyleBox["coordinates)  one  obtains  instead ", "Text",
+  FontFamily->"Times New Roman",
+  FontSize->18,
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0]],
+ StyleBox[Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{"[", 
+     TemplateBox[<|"boxes" -> FormBox[
+         RowBox[{
+           SuperscriptBox[
+            StyleBox["k", "TI"], "+"], 
+           RowBox[{"(", 
+             StyleBox["n", "TI"], ")"}], "\[LongEqual]", 
+           FractionBox[
+            RowBox[{"2", "\[Pi]"}], 
+            StyleBox["L", "TI"]], 
+           StyleBox["n", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+       "$k^+(n)=\\frac{2\\pi}{L}n$", "state" -> "Boxes"|>,
+      "TeXAssistantTemplate"], "]"}]}], TraditionalForm]], "Text",
+  FontSize->18,
+  FontColor->GrayLevel[0],ExpressionUUID->
+  "590dcfe7-0df7-4201-a0c7-454c074e9c21"], "Text"],
+ StyleBox[",", "Text",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ StyleBox["\n\n", "Text",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox["\[CapitalSigma]", "~"], "\[LongEqual]", 
+         FractionBox["1", 
+          StyleBox["L", "TI"]], 
+         UnderscriptBox["\[Sum]", 
+          SuperscriptBox[
+           StyleBox["k", "TI"], "+"], LimitsPositioning -> True], 
+         SubsuperscriptBox["\[Integral]", 
+          RowBox[{"-", "\[Infinity]"}], 
+          RowBox[{"+", "\[Infinity]"}]], 
+         FractionBox[
+          RowBox[{
+            StyleBox["d", "TI"], 
+            SuperscriptBox[
+             StyleBox["k", "TI"], "-"]}], 
+          RowBox[{"(", 
+            RowBox[{"2", "\[Pi]"}], ")"}]], 
+         FractionBox["1", 
+          SuperscriptBox[
+           RowBox[{"(", 
+             RowBox[{
+               FractionBox[
+                RowBox[{"2", "\[Epsilon]"}], 
+                StyleBox["L", "TI"]], 
+               SuperscriptBox[
+                RowBox[{"(", 
+                  SuperscriptBox[
+                   StyleBox["k", "TI"], "-"], ")"}], "2"], "+", "2", 
+               SuperscriptBox[
+                StyleBox["k", "TI"], "-"], 
+               SuperscriptBox[
+                StyleBox["k", "TI"], "+"], "-", 
+               SuperscriptBox[
+                StyleBox["m", "TI"], "2"], "+", 
+               StyleBox["i", "TI"], "0"}], ")"}], "2"]]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "\\tilde{\\Sigma}=\\frac{1}{L}\\sum_{k^+}\\int_{-\\infty}^{+\\infty}\\\
+frac{dk^-}{(2\\pi)}\\frac{1}{(\\frac{2\\epsilon}{L}(k^{-})^2+2k^-k^+-m^2+i0)^\
+2}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->14,
+  FontColor->GrayLevel[0],ExpressionUUID->
+  "49ae8621-15de-40d3-b753-aebf42efdc4b"],
+ StyleBox["\n\n",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox["\[CapitalSigma]", "~"], "\[LongEqual]", 
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", 
+            SqrtBox[
+             RowBox[{"2", "\[Epsilon]", 
+               StyleBox["L", "TI"]}]]}]], 
+         UnderscriptBox["\[Sum]", 
+          SuperscriptBox[
+           StyleBox["k", "TI"], "+"], LimitsPositioning -> True], 
+         SuperscriptBox[
+          RowBox[{"[", 
+            RowBox[{
+              FractionBox[
+               RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                    SuperscriptBox[
+                    StyleBox["k", "TI"], "+"], ")"}], "2"], 
+                 StyleBox["L", "TI"]}], 
+               RowBox[{"2", "\[Epsilon]"}]], "+", 
+              SuperscriptBox[
+               StyleBox["m", "TI"], "2"]}], "]"}], 
+          RowBox[{"-3", "/", "2"}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "\\tilde{\\Sigma}=\\frac{i}{4\\sqrt{2\\epsilon \
+L}}\\sum_{k^+}\\left[\\frac{(k^{+})^2L}{2\\epsilon}+m^2\\right]^{-3/2}", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->18,
+  FontColor->GrayLevel[0],ExpressionUUID->
+  "5d6a59d6-5064-463f-a097-6951e1ab876d"],
+ "\n",
+ StyleBox["\n",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ StyleBox["The below plot shows the expression ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", 
+            SqrtBox[
+             RowBox[{"2", "\[Epsilon]", 
+               StyleBox["L", "TI"]}]]}]], 
+         SuperscriptBox[
+          RowBox[{"[", 
+            RowBox[{
+              FractionBox[
+               RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                    SuperscriptBox[
+                    StyleBox["k", "TI"], "+"], ")"}], "2"], 
+                 StyleBox["L", "TI"]}], 
+               RowBox[{"2", "\[Epsilon]"}]], "+", 
+              SuperscriptBox[
+               StyleBox["m", "TI"], "2"]}], "]"}], 
+          RowBox[{"-3", "/", "2"}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "\\frac{i}{4\\sqrt{2\\epsilon \
+L}}\\left[\\frac{(k^{+})^2L}{2\\epsilon}+m^2\\right]^{-3/2}", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"b416a976-dd9f-4044-bd1d-074ed457ab84"],
+ StyleBox[" (with m=1) as the function of ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SuperscriptBox[
+        StyleBox["k", "TI"], "+"], TraditionalForm], "errors" -> {}, "input" -> 
+     "k^+", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"d4e17390-4704-44ba-984d-0d0fa3ed9e7a"],
+ StyleBox[" for different limits of both ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|
+    "boxes" -> FormBox["\[Epsilon]", TraditionalForm], "errors" -> {}, 
+     "input" -> "\\epsilon", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"8f4e6a7d-f1c0-4a25-83a6-3c2bfa3367f5"],
+ StyleBox[" and ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["L", "TI"], TraditionalForm], "errors" -> {}, "input" -> "L", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"24f7b28d-3af5-462b-986a-642e839a3abb"],
+ StyleBox[":",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ StyleBox["\[LineSeparator]", "Input"]
+}], "Title",
+ CellChangeTimes->{{3.85415447593568*^9, 3.854154515266527*^9}, {
+   3.8541545576512823`*^9, 3.854154607967284*^9}, 3.854154729694216*^9, {
+   3.854154772826894*^9, 3.8541548277567167`*^9}, {3.8541549317021427`*^9, 
+   3.8541549683073263`*^9}, 3.8541550305842657`*^9, 3.854155069235015*^9, 
+   3.8541552047246103`*^9, {3.8541553528013163`*^9, 3.854155388855948*^9}, 
+   3.854155468548932*^9, 3.854155546300517*^9, {3.85415565423151*^9, 
+   3.8541557590985813`*^9}, {3.854155791375423*^9, 3.854155811038582*^9}, {
+   3.8541558531683483`*^9, 3.854155910852303*^9}, 3.854155961589044*^9, {
+   3.854156017536325*^9, 3.854156028583654*^9}, {3.8541560988480797`*^9, 
+   3.854156105235261*^9}, {3.8541561734156113`*^9, 3.854156174740382*^9}, {
+   3.854156332012685*^9, 3.854156374835291*^9}, {3.8541564271184483`*^9, 
+   3.854156464096691*^9}, {3.8541564986366367`*^9, 3.85415659265257*^9}, {
+   3.854156639877211*^9, 3.854156704880741*^9}, {3.8541567693393106`*^9, 
+   3.854156771270124*^9}, {3.854156814117087*^9, 3.854156848638228*^9}, {
+   3.854156914542664*^9, 3.854156916297842*^9}, {3.8541569813441133`*^9, 
+   3.854157005854041*^9}, {3.854157556451733*^9, 3.854157557981126*^9}, {
+   3.854158098260088*^9, 3.854158117324848*^9}, 3.854158177683259*^9, {
+   3.854291669852509*^9, 3.85429167073764*^9}},
+ TextAlignment->Center,ExpressionUUID->"a53873fd-81c0-4d1e-9721-5c7a41099d5d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Power", "::", "infy"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Infinity", "::", "indet"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "stop"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumri"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumr"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Manipulate", " ", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", "1", "}"}], "/", 
+        RowBox[{"{", 
+         RowBox[{"4", "*", 
+          RowBox[{"Power", "[", 
+           RowBox[{
+            RowBox[{"2", "*", "\[Epsilon]", "*", "L"}], ",", 
+            RowBox[{"1", "/", "2"}]}], "]"}]}], "}"}]}], "*", 
+       RowBox[{"Power", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"k", "*", "k", "*", "L"}], "}"}], "/", 
+           RowBox[{"{", 
+            RowBox[{"2", "*", "\[Epsilon]"}], "}"}]}], "+", "1"}], ",", 
+         RowBox[{
+          RowBox[{"-", "3"}], "/", "2"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", 
+        RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.0000001"}], "}"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\"", ",", 
+         "\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\Bigg]^{-3/2}\", \"state\
+\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\""}], "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Bold", ",", " ", "Medium"}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Epsilon]", ",", "0", ",", "100", ",", "1", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"L", ",", "100", ",", "Infinity", ",", "10", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{
+    "FrameLabel", "->", 
+     "\"\<Plot of \!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\right]^{-3/2}\", \
+\"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \!\(\*TemplateBox[<|\
+\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) \
+for \!\(\*TemplateBox[<|\"boxes\" -> FormBox[\"\[Epsilon]\", \
+TraditionalForm], \"errors\" -> {}, \"input\" -> \"\\\\epsilon\", \"state\" \
+-> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) and L limits\>\""}]}], " ", "]"}],
+  FontSize->8]}], "Input",
+ CellChangeTimes->{
+  3.854157024912809*^9, {3.854293771610968*^9, 3.854293832328022*^9}, {
+   3.854294278950409*^9, 3.8542943670993834`*^9}, {3.8542944007543173`*^9, 
+   3.854294414913156*^9}, 3.8542946118932323`*^9, 3.854294889663659*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"12370172-8350-4374-b241-70d7e73dc2c0"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 690, $CellContext`\[Epsilon]$$ = 22, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Epsilon]$$], 0, 100, 1}, {
+      Hold[$CellContext`L$$], 100, 
+      DirectedInfinity[1], 10}}, Typeset`size$$ = {360., {138., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 100, $CellContext`\[Epsilon]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[({1}/{
+         4 (2 $CellContext`\[Epsilon]$$ $CellContext`L$$)^(1/
+            2)}) ({$CellContext`k $CellContext`k $CellContext`L$$}/{
+           2 $CellContext`\[Epsilon]$$} + 1)^((-3)/2), {$CellContext`k, -
+         Infinity, Infinity}, PlotRange -> {0, 1.*^-7}, 
+        AxesLabel -> {
+         "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \
+\"errors\" -> {}, \"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)", 
+          "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\Bigg]^{-3/2}\", \"state\
+\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)"}, Filling -> Axis, LabelStyle -> 
+        Directive[Bold, Medium]], 
+      "Specifications" :> {{$CellContext`\[Epsilon]$$, 0, 100, 1, Appearance -> 
+         "Labeled"}, {$CellContext`L$$, 100, 
+         DirectedInfinity[1], 10, Appearance -> "Labeled"}}, 
+      "Options" :> {
+       FrameLabel -> 
+        "Plot of \!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\right]^{-3/2}\", \
+\"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \!\(\*TemplateBox[<|\
+\"boxes\" -> FormBox[SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \
+TraditionalForm], \"errors\" -> {}, \"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\) for \!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[\"\[Epsilon]\", TraditionalForm], \"errors\" -> {}, \"input\" -> \"\\\
+\\epsilon\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) and L \
+limits"}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {214., 220.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8541570262691393`*^9, 3.854157521199012*^9, 3.854291557460709*^9, 
+   3.85429360674928*^9, {3.854293786539319*^9, 3.8542938383339167`*^9}, 
+   3.854294310291223*^9, 3.854294375522254*^9, 3.854294613665544*^9, 
+   3.854294902446229*^9, 3.854381330356278*^9},
+ TextAlignment->Center,
+ CellLabel->"Out[6]=",ExpressionUUID->"c3ab1b20-4226-40e6-ae41-a403c47e8f7a"]
+}, Open  ]],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    StyleBox["The",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["below",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["plot",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["shows",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["the",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["expression",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[
+     FormBox[
+      TemplateBox[<|"boxes" -> FormBox[
+          RowBox[{
+            FractionBox[
+             StyleBox["i", "TI"], 
+             RowBox[{"4", 
+               SqrtBox[
+                RowBox[{"2", "\[Epsilon]", 
+                  StyleBox["L", "TI"]}]]}]], 
+            SuperscriptBox[
+             RowBox[{"[", 
+               RowBox[{
+                 FractionBox[
+                  RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    SuperscriptBox[
+                    StyleBox["k", "TI"], "+"], ")"}], "2"], 
+                    StyleBox["L", "TI"]}], 
+                  RowBox[{"2", "\[Epsilon]"}]], "+", 
+                 SuperscriptBox[
+                  StyleBox["m", "TI"], "2"]}], "]"}], 
+             RowBox[{"-3", "/", "2"}]]}], TraditionalForm], "errors" -> {}, 
+        "input" -> 
+        "\\frac{i}{4\\sqrt{2\\epsilon \
+L}}\\left[\\frac{(k^{+})^2L}{2\\epsilon}+m^2\\right]^{-3/2}", "state" -> 
+        "Boxes"|>,
+       "TeXAssistantTemplate"],
+      TraditionalForm],
+     FontFamily->"Source Sans Pro",
+     FontSize->18,
+     FontWeight->"SemiBold",
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"with", " ", "m"}], "=", "1"}], ")"}],
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["as",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["the",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["function",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["of",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[
+     FormBox[
+      TemplateBox[<|"boxes" -> FormBox[
+          SuperscriptBox[
+           StyleBox["k", "TI"], "+"], TraditionalForm], "errors" -> {}, 
+        "input" -> "k^+", "state" -> "Boxes"|>,
+       "TeXAssistantTemplate"],
+      TraditionalForm],
+     FontFamily->"Source Sans Pro",
+     FontSize->24,
+     FontWeight->"SemiBold",
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["for",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["different",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["limits",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["of",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["both",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[
+     FormBox[
+      TemplateBox[<|
+       "boxes" -> FormBox["\[Epsilon]", TraditionalForm], "errors" -> {}, 
+        "input" -> "\\epsilon", "state" -> "Boxes"|>,
+       "TeXAssistantTemplate"],
+      TraditionalForm],
+     FontFamily->"Source Sans Pro",
+     FontSize->24,
+     FontWeight->"SemiBold",
+     FontColor->RGBColor[1, 0, 0]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox["and",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[" ",
+     FontFamily->"Times New Roman",
+     FontSize->24,
+     FontWeight->"Regular",
+     FontColor->RGBColor[
+      0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+    StyleBox[
+     FormBox[
+      TemplateBox[<|"boxes" -> FormBox[
+          StyleBox["L", "TI"], TraditionalForm], "errors" -> {}, "input" -> 
+        "L", "state" -> "Boxes"|>,
+       "TeXAssistantTemplate"],
+      TraditionalForm],
+     FontFamily->"Source Sans Pro",
+     FontSize->24,
+     FontWeight->"SemiBold",
+     FontColor->RGBColor[1, 0, 0]]}], 
+   StyleBox[":",
+    FontFamily->"Source Sans Pro",
+    FontSize->24,
+    FontWeight->"SemiBold",
+    FontColor->RGBColor[
+     0.9862516212710766, 0.007232776379034104, 0.02742046234836347]], 
+   StyleBox[
+    RowBox[{"(", 
+     RowBox[{"with", " ", "area"}], ")"}],
+    FontFamily->"Source Sans Pro",
+    FontSize->24,
+    FontWeight->"SemiBold",
+    FontColor->RGBColor[
+     0.9862516212710766, 0.007232776379034104, 0.02742046234836347]]}], 
+  "Title"]], "Input",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellFrameColor->GrayLevel[0.75],
+ CellChangeTimes->{{3.8541576066703167`*^9, 3.8541576066731873`*^9}, {
+  3.854157652490271*^9, 3.854157653840556*^9}, {3.854157758831121*^9, 
+  3.854157809600226*^9}},ExpressionUUID->"887f32b8-49ec-48d6-80fc-\
+cc93d86a0b37"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Power", "::", "infy"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Infinity", "::", "indet"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "stop"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumri"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumr"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Manipulate", " ", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", "1", "}"}], "/", 
+        RowBox[{"{", 
+         RowBox[{"4", "*", 
+          RowBox[{"Power", "[", 
+           RowBox[{
+            RowBox[{"2", "*", "\[Epsilon]", "*", "L"}], ",", 
+            RowBox[{"1", "/", "2"}]}], "]"}]}], "}"}]}], "*", 
+       RowBox[{"Power", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"k", "*", "k", "*", "L"}], "}"}], "/", 
+           RowBox[{"{", 
+            RowBox[{"2", "*", "\[Epsilon]"}], "}"}]}], "+", "1"}], ",", 
+         RowBox[{
+          RowBox[{"-", "3"}], "/", "2"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", 
+        RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.0000001"}], "}"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\"", ",", 
+         "\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\Bigg]^{-3/2}\", \"state\
+\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\""}], "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Bold", ",", " ", "Medium"}], "]"}]}], ",", 
+      RowBox[{"Epilog", "->", 
+       RowBox[{"Inset", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Area is:\>\"", ",", 
+           RowBox[{
+            RowBox[{"NIntegrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"1", "/", 
+                RowBox[{"{", 
+                 RowBox[{"4", "*", 
+                  RowBox[{"Power", "[", 
+                   RowBox[{
+                    RowBox[{"2", "*", "\[Epsilon]", "*", "L"}], ",", 
+                    RowBox[{"1", "/", "2"}]}], "]"}]}], "}"}]}], "*", 
+               RowBox[{"Power", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"k", "*", "k", "*", "L"}], "}"}], "/", 
+                   RowBox[{"{", 
+                    RowBox[{"2", "*", "\[Epsilon]"}], "}"}]}], "+", "1"}], 
+                 ",", 
+                 RowBox[{
+                  RowBox[{"-", "3"}], "/", "2"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", 
+                RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}], 
+            "\"\<i\>\""}]}], "}"}], ",", 
+         RowBox[{"Background", "->", "White"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Right", ",", "Top"}], "}"}]}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Epsilon]", ",", "0", ",", "100", ",", "1", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"L", ",", "100", ",", "Infinity", ",", "10", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{
+    "FrameLabel", "->", 
+     "\"\<Plot of \!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\right]^{-3/2}\", \
+\"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \!\(\*TemplateBox[<|\
+\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) \
+for \!\(\*TemplateBox[<|\"boxes\" -> FormBox[\"\[Epsilon]\", \
+TraditionalForm], \"errors\" -> {}, \"input\" -> \"\\\\epsilon\", \"state\" \
+-> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) and L limits\>\""}]}], " ", "]"}],
+  FontSize->8]}], "Input",
+ CellChangeTimes->{{3.85429445308987*^9, 3.854294553146611*^9}, {
+  3.854381712774857*^9, 3.854381713212384*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"776a671d-ef4c-4396-be3d-31777182b9f7"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 1150, $CellContext`\[Epsilon]$$ = 66, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Epsilon]$$], 0, 100, 1}, {
+      Hold[$CellContext`L$$], 100, 
+      DirectedInfinity[1], 10}}, Typeset`size$$ = {360., {138., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 100, $CellContext`\[Epsilon]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[({1}/{
+         4 (2 $CellContext`\[Epsilon]$$ $CellContext`L$$)^(1/
+            2)}) ({$CellContext`k $CellContext`k $CellContext`L$$}/{
+           2 $CellContext`\[Epsilon]$$} + 1)^((-3)/2), {$CellContext`k, -
+         Infinity, Infinity}, PlotRange -> {0, 1.*^-7}, 
+        AxesLabel -> {
+         "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \
+\"errors\" -> {}, \"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)", 
+          "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\Bigg]^{-3/2}\", \"state\
+\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)"}, Filling -> Axis, LabelStyle -> 
+        Directive[Bold, Medium], Epilog -> 
+        Inset[{"Area is:", 
+           NIntegrate[(1/{
+              4 (2 $CellContext`\[Epsilon]$$ $CellContext`L$$)^(1/
+                 2)}) ({$CellContext`k $CellContext`k $CellContext`L$$}/{
+                2 $CellContext`\[Epsilon]$$} + 1)^((-3)/2), {$CellContext`k, -
+              Infinity, Infinity}] "i"}, Background -> White, {Right, Top}]], 
+      "Specifications" :> {{$CellContext`\[Epsilon]$$, 0, 100, 1, Appearance -> 
+         "Labeled"}, {$CellContext`L$$, 100, 
+         DirectedInfinity[1], 10, Appearance -> "Labeled"}}, 
+      "Options" :> {
+       FrameLabel -> 
+        "Plot of \!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\right]^{-3/2}\", \
+\"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \!\(\*TemplateBox[<|\
+\"boxes\" -> FormBox[SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \
+TraditionalForm], \"errors\" -> {}, \"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\) for \!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[\"\[Epsilon]\", TraditionalForm], \"errors\" -> {}, \"input\" -> \"\\\
+\\epsilon\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) and L \
+limits"}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {214., 220.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.85415787019339*^9, {3.854157919996354*^9, 3.854157948448111*^9}, 
+   3.854157984110881*^9, 3.854291567716269*^9, 3.854294564894287*^9, 
+   3.854381363144957*^9, 3.8543817240118303`*^9},
+ TextAlignment->Center,
+ CellLabel->"Out[42]=",ExpressionUUID->"a9da421f-6a20-4694-87c4-a11165b6d903"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.854295611656872*^9, 
+  3.854295614280916*^9}},ExpressionUUID->"701a957d-0cc8-4353-8c34-\
+d159f40ffb21"],
+
+Cell[TextData[{
+ StyleBox["Let\[CloseCurlyQuote]s perform  the  continuum limit (sum to \
+integral), i.e., ",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         UnderscriptBox["\[Sum]", 
+          StyleBox["n", "TI"], LimitsPositioning -> True], 
+         "\[LongRightArrow]", 
+         StyleBox["L", "TI"], 
+         SubsuperscriptBox["\[Integral]", 
+          RowBox[{"-", "\[Infinity]"}], 
+          RowBox[{"+", "\[Infinity]"}]], 
+         FractionBox[
+          RowBox[{
+            StyleBox["d", "TI"], 
+            SuperscriptBox[
+             StyleBox["k", "TI"], "+"]}], 
+          RowBox[{"2", "\[Pi]"}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "$\\sum_{n}\\longrightarrow L\\int_{-\\infty}^{+\\infty} \
+\\frac{dk^+}{2\\pi}$", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->18,
+  FontColor->GrayLevel[0],
+  Background->None,ExpressionUUID->"1ef9a295-dba5-4a31-a8cc-b44b6af56d80"],
+ StyleBox["\n",
+  FontSize->18,
+  FontColor->GrayLevel[0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox["\[CapitalSigma]", "~"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{
+            StyleBox["i", "TI"], 
+            StyleBox["L", "TI"]}], 
+          RowBox[{"4", 
+            SqrtBox[
+             RowBox[{"2", "\[Epsilon]", 
+               StyleBox["L", "TI"]}]]}]], 
+         SubsuperscriptBox["\[Integral]", 
+          RowBox[{"-", "\[Infinity]"}], 
+          RowBox[{"+", "\[Infinity]"}]], 
+         FractionBox[
+          RowBox[{
+            StyleBox["d", "TI"], 
+            SuperscriptBox[
+             StyleBox["k", "TI"], "+"]}], 
+          RowBox[{"2", "\[Pi]"}]], 
+         SuperscriptBox[
+          RowBox[{"[", 
+            RowBox[{
+              FractionBox[
+               RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                    SuperscriptBox[
+                    StyleBox["k", "TI"], "+"], ")"}], "2"], 
+                 StyleBox["L", "TI"]}], 
+               RowBox[{"2", "\[Epsilon]"}]], "+", 
+              SuperscriptBox[
+               StyleBox["m", "TI"], "2"]}], "]"}], 
+          RowBox[{"-3", "/", "2"}]], "\[LongEqual]", 
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", "\[Pi]", 
+            SuperscriptBox[
+             StyleBox["m", "TI"], "2"]}]]}], TraditionalForm], "errors" -> {},
+      "input" -> 
+     "\\tilde{\\Sigma}=&\\frac{iL}{4\\sqrt{2\\epsilon \
+L}}\\int_{-\\infty}^{+\\infty} \\frac{dk^+}{2\\pi}\\left[\\frac{(k^{+})^2L}{2\
+\\epsilon}+m^2\\right]^{-3/2}=\\frac{i}{4\\pi m^2}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->18,
+  FontColor->GrayLevel[0],
+  Background->None,ExpressionUUID->"a5e15a35-b678-46a9-8a56-5e38744cb7f7"],
+ StyleBox["\n",
+  FontSize->18,
+  FontColor->GrayLevel[0]]
+}], "Subsubsection",
+ CellFrame->{{0, 0}, {0, 3}},
+ CellFrameColor->GrayLevel[0.75],
+ CellChangeTimes->{{3.854292045615769*^9, 3.854292101843169*^9}, 
+   3.854292144701022*^9, {3.854293565249477*^9, 3.854293565682663*^9}},
+ TextAlignment->Center,ExpressionUUID->"b76faac9-3ca3-465d-97d8-52e827223f90"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["The below plot shows the integrand ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", 
+            SqrtBox[
+             RowBox[{"2", "\[Epsilon]", 
+               StyleBox["L", "TI"]}]]}]], 
+         FractionBox[
+          StyleBox["L", "TI"], 
+          RowBox[{"2", "\[Pi]"}]], 
+         SuperscriptBox[
+          RowBox[{"[", 
+            RowBox[{
+              FractionBox[
+               RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                    SuperscriptBox[
+                    StyleBox["k", "TI"], "+"], ")"}], "2"], 
+                 StyleBox["L", "TI"]}], 
+               RowBox[{"2", "\[Epsilon]"}]], "+", 
+              SuperscriptBox[
+               StyleBox["m", "TI"], "2"]}], "]"}], 
+          RowBox[{"-3", "/", "2"}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "\\frac{i}{4\\sqrt{2\\epsilon \
+L}}\\frac{L}{2\\pi}\\left[\\frac{(k^{+})^2L}{2\\epsilon}+m^2\\right]^{-3/2}", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"f3dfd027-e3f3-46fb-ae9a-cfcda86d944a"],
+ StyleBox[" (with m=1) as the function of ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SuperscriptBox[
+        StyleBox["k", "TI"], "+"], TraditionalForm], "errors" -> {}, "input" -> 
+     "k^+", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"ef352eac-4730-4dd3-ae13-4a68b9aee342"],
+ StyleBox[" for different limits of both ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|
+    "boxes" -> FormBox["\[Epsilon]", TraditionalForm], "errors" -> {}, 
+     "input" -> "\\epsilon", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"c155295c-60cf-464d-acbd-fb87c0a9eee5"],
+ StyleBox[" and ",
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["L", "TI"], TraditionalForm], "errors" -> {}, "input" -> "L", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontFamily->"Times New Roman",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347],
+  ExpressionUUID->"17e15c2e-2273-450c-b576-da578cba5abb"],
+ StyleBox[":",
+  FontSize->24,
+  FontColor->RGBColor[
+   0.9862516212710766, 0.007232776379034104, 0.02742046234836347]]
+}], "Subsection",
+ CellChangeTimes->{{3.8542922500710907`*^9, 3.854292265997114*^9}, 
+   3.854292653628478*^9},ExpressionUUID->"0556f2c6-0b45-440a-b88a-\
+1898c3109452"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Power", "::", "infy"}], "]"}],
+  FontSize->9], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Infinity", "::", "indet"}], "]"}],
+  FontSize->9], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "stop"}], "]"}],
+  FontSize->9], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumri"}], "]"}],
+  FontSize->9], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumr"}], "]"}],
+  FontSize->9], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Manipulate", " ", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", "L", "}"}], "/", 
+        RowBox[{"{", 
+         RowBox[{"8", "*", "Pi", "*", 
+          RowBox[{"Power", "[", 
+           RowBox[{
+            RowBox[{"2", "*", "\[Epsilon]", "*", "L"}], ",", 
+            RowBox[{"1", "/", "2"}]}], "]"}]}], "}"}]}], "*", 
+       RowBox[{"Power", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"k", "*", "k", "*", "L"}], "}"}], "/", 
+           RowBox[{"{", 
+            RowBox[{"2", "*", "\[Epsilon]"}], "}"}]}], "+", "1"}], ",", 
+         RowBox[{
+          RowBox[{"-", "3"}], "/", "2"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", 
+        RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.0001"}], "}"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\"", ",", 
+         "\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+FractionBox[
+StyleBox[\"L\", \"TI\"], 
+RowBox[{\"2\", \"\[Pi]\"}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+Bigg]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\""}], 
+        "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Bold", ",", " ", "Medium"}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Epsilon]", ",", "0", ",", "100", ",", "1", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"L", ",", "100", ",", "Infinity", ",", "10", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{
+    "FrameLabel", "->", 
+     "\"\<Plot of \!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+FractionBox[
+StyleBox[\"L\", \"TI\"], 
+RowBox[{\"2\", \"\[Pi]\"}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+right]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \
+\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) \
+for \!\(\*TemplateBox[<|\"boxes\" -> FormBox[\"\[Epsilon]\", \
+TraditionalForm], \"errors\" -> {}, \"input\" -> \"\\\\epsilon\", \"state\" \
+-> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) and L limits\>\""}]}], "]"}],
+  FontSize->9]}], "Input",
+ CellChangeTimes->{{3.8542925372463627`*^9, 3.854292543810628*^9}, {
+  3.8542945766197023`*^9, 3.854294578792239*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"43c179a4-8fc5-4cef-bf91-f2b5201c590a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 790, $CellContext`\[Epsilon]$$ = 52, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Epsilon]$$], 0, 100, 1}, {
+      Hold[$CellContext`L$$], 100, 
+      DirectedInfinity[1], 10}}, Typeset`size$$ = {360., {138., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 100, $CellContext`\[Epsilon]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[({$CellContext`L$$}/{
+         8 Pi (2 $CellContext`\[Epsilon]$$ $CellContext`L$$)^(1/
+            2)}) ({$CellContext`k $CellContext`k $CellContext`L$$}/{
+           2 $CellContext`\[Epsilon]$$} + 1)^((-3)/2), {$CellContext`k, -
+         Infinity, Infinity}, PlotRange -> {0, 0.0001}, 
+        AxesLabel -> {
+         "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \
+\"errors\" -> {}, \"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)", 
+          "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+FractionBox[StyleBox[\"L\", \"TI\"], RowBox[{\"2\", \"\[Pi]\"}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+Bigg]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)"}, 
+        Filling -> Axis, LabelStyle -> Directive[Bold, Medium]], 
+      "Specifications" :> {{$CellContext`\[Epsilon]$$, 0, 100, 1, Appearance -> 
+         "Labeled"}, {$CellContext`L$$, 100, 
+         DirectedInfinity[1], 10, Appearance -> "Labeled"}}, 
+      "Options" :> {
+       FrameLabel -> 
+        "Plot of \!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+FractionBox[StyleBox[\"L\", \"TI\"], RowBox[{\"2\", \"\[Pi]\"}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+right]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \
+\!\(\*TemplateBox[<|\"boxes\" -> FormBox[SuperscriptBox[StyleBox[\"k\", \
+\"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \"input\" -> \"k^+\", \
+\"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) for \!\(\*TemplateBox[<|\
+\"boxes\" -> FormBox[\"\[Epsilon]\", TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\epsilon\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\
+\"]\) and L limits"}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {214., 220.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.854292633399706*^9, 3.854294583987298*^9, 
+  3.854381797576297*^9},
+ TextAlignment->Center,
+ CellLabel->"Out[48]=",ExpressionUUID->"67270573-9c4b-4693-b463-8a628e122b75"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["The area under this curve is ",
+  FontSize->24,
+  FontColor->RGBColor[1, 0, 0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          OverscriptBox["\[CapitalSigma]", "~"], 
+          RowBox[{
+            StyleBox["L", "TI"], 
+            StyleBox["F", "TI"], 
+            StyleBox["D", "TI"]}]], "\[LongEqual]", 
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", "\[Pi]", 
+            SuperscriptBox[
+             StyleBox["m", "TI"], "2"]}]]}], TraditionalForm], "errors" -> {},
+      "input" -> "{\\tilde{\\Sigma}_{LFD}=&\\frac{i}{4\\pi m^2}}", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->24,
+  FontColor->RGBColor[1, 0, 0],ExpressionUUID->
+  "6419b8a6-58ec-4483-bed0-f9cc05223886"],
+ StyleBox[".\nFor (case, m=1), the area is ",
+  FontSize->24,
+  FontColor->RGBColor[1, 0, 0]],
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          OverscriptBox["\[CapitalSigma]", "~"], 
+          RowBox[{
+            StyleBox["L", "TI"], 
+            StyleBox["F", "TI"], 
+            StyleBox["D", "TI"]}]], "\[LongEqual]", 
+         FractionBox[
+          StyleBox["i", "TI"], 
+          RowBox[{"4", "\[Pi]"}]], "\[LongEqual]", "0.07957747", 
+         "\[NonBreakingSpace]", 
+         StyleBox["i", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\tilde{\\Sigma}_{LFD}=\\frac{i}{4\\pi}=0.07957747~i", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],
+  FontSize->24,
+  FontColor->RGBColor[1, 0, 0],ExpressionUUID->
+  "e3badb0a-3e7a-4636-a236-a65eedd50375"],
+ "\n"
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellFrameColor->GrayLevel[0.75],
+ CellChangeTimes->{{3.854292926537738*^9, 3.854292948675506*^9}, 
+   3.854293013593099*^9, {3.854293061056568*^9, 3.8542930968710318`*^9}, 
+   3.8542931714372253`*^9},
+ TextAlignment->Center,ExpressionUUID->"e9cf956d-ed40-4bc4-9485-185c43d2936b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Power", "::", "infy"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"Infinity", "::", "indet"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "stop"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumri"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Off", "[", 
+   RowBox[{"NIntegrate", "::", "inumr"}], "]"}],
+  FontSize->8], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Manipulate", " ", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", "L", "}"}], "/", 
+        RowBox[{"{", 
+         RowBox[{"8", "*", "Pi", "*", 
+          RowBox[{"Power", "[", 
+           RowBox[{
+            RowBox[{"2", "*", "\[Epsilon]", "*", "L"}], ",", 
+            RowBox[{"1", "/", "2"}]}], "]"}]}], "}"}]}], "*", 
+       RowBox[{"Power", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"k", "*", "k", "*", "L"}], "}"}], "/", 
+           RowBox[{"{", 
+            RowBox[{"2", "*", "\[Epsilon]"}], "}"}]}], "+", "1"}], ",", 
+         RowBox[{
+          RowBox[{"-", "3"}], "/", "2"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", 
+        RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.0001"}], "}"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\"", ",", 
+         "\"\<\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+FractionBox[
+StyleBox[\"L\", \"TI\"], 
+RowBox[{\"2\", \"\[Pi]\"}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+Bigg]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)\>\""}], 
+        "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Bold", ",", " ", "Medium"}], "]"}]}], ",", 
+      RowBox[{"Epilog", "->", 
+       RowBox[{"Inset", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Area is:\>\"", ",", 
+           RowBox[{
+            RowBox[{"NIntegrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"L", "/", 
+                RowBox[{"{", 
+                 RowBox[{"8", "*", "Pi", "*", 
+                  RowBox[{"Power", "[", 
+                   RowBox[{
+                    RowBox[{"2", "*", "\[Epsilon]", "*", "L"}], ",", 
+                    RowBox[{"1", "/", "2"}]}], "]"}]}], "}"}]}], "*", 
+               RowBox[{"Power", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"k", "*", "k", "*", "L"}], "}"}], "/", 
+                   RowBox[{"{", 
+                    RowBox[{"2", "*", "\[Epsilon]"}], "}"}]}], "+", "1"}], 
+                 ",", 
+                 RowBox[{
+                  RowBox[{"-", "3"}], "/", "2"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", 
+                RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}], 
+            "\"\<i\>\""}]}], "}"}], ",", 
+         RowBox[{"Background", "->", "White"}]}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Epsilon]", ",", "0", ",", "100", ",", "1", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"L", ",", "100", ",", "Infinity", ",", "10", ",", 
+      RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+    RowBox[{
+    "FrameLabel", "->", 
+     "\"\<Plot of \!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+RowBox[{
+FractionBox[
+StyleBox[\"i\", \"TI\"], 
+RowBox[{\"4\", 
+SqrtBox[
+RowBox[{\"2\", \"\[Epsilon]\", 
+StyleBox[\"L\", \"TI\"]}]]}]], 
+FractionBox[
+StyleBox[\"L\", \"TI\"], 
+RowBox[{\"2\", \"\[Pi]\"}]], 
+SuperscriptBox[
+RowBox[{\"[\", 
+RowBox[{
+FractionBox[
+RowBox[{
+SuperscriptBox[
+RowBox[{\"(\", 
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], 
+StyleBox[\"L\", \"TI\"]}], 
+RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", 
+SuperscriptBox[
+StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], 
+RowBox[{\"-3\", \"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+right]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \
+\!\(\*TemplateBox[<|\"boxes\" -> FormBox[
+SuperscriptBox[
+StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"k^+\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) \
+for \!\(\*TemplateBox[<|\"boxes\" -> FormBox[\"\[Epsilon]\", \
+TraditionalForm], \"errors\" -> {}, \"input\" -> \"\\\\epsilon\", \"state\" \
+-> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) and L limits\>\""}]}], "]"}],
+  FontSize->8]}], "Input",
+ CellChangeTimes->{{3.854293281660364*^9, 3.854293297882173*^9}, {
+   3.8542945923367*^9, 3.854294593687456*^9}, {3.854381534207777*^9, 
+   3.854381617034433*^9}, 3.854381659872624*^9},
+ CellLabel->"In[31]:=",ExpressionUUID->"1d81f77a-d824-4a8b-8566-9e959e149a49"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`L$$ = 2880, $CellContext`\[Epsilon]$$ = 100,
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Epsilon]$$], 0, 100, 1}, {
+      Hold[$CellContext`L$$], 100, 
+      DirectedInfinity[1], 10}}, Typeset`size$$ = {360., {138., 142.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`L$$ = 100, $CellContext`\[Epsilon]$$ = 0}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[({$CellContext`L$$}/{
+         8 Pi (2 $CellContext`\[Epsilon]$$ $CellContext`L$$)^(1/
+            2)}) ({$CellContext`k $CellContext`k $CellContext`L$$}/{
+           2 $CellContext`\[Epsilon]$$} + 1)^((-3)/2), {$CellContext`k, -
+         Infinity, Infinity}, PlotRange -> {0, 0.0001}, 
+        AxesLabel -> {
+         "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], TraditionalForm], \
+\"errors\" -> {}, \"input\" -> \"k^+\", \"state\" -> \
+\"Boxes\"|>,\"TeXAssistantTemplate\"]\)", 
+          "\!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+FractionBox[StyleBox[\"L\", \"TI\"], RowBox[{\"2\", \"\[Pi]\"}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\Bigg[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+Bigg]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\)"}, 
+        Filling -> Axis, LabelStyle -> Directive[Bold, Medium], Epilog -> 
+        Inset[{"Area is:", 
+           NIntegrate[($CellContext`L$$/{
+              8 Pi (2 $CellContext`\[Epsilon]$$ $CellContext`L$$)^(1/
+                 2)}) ({$CellContext`k $CellContext`k $CellContext`L$$}/{
+                2 $CellContext`\[Epsilon]$$} + 1)^((-3)/2), {$CellContext`k, -
+              Infinity, Infinity}] "i"}, Background -> White]], 
+      "Specifications" :> {{$CellContext`\[Epsilon]$$, 0, 100, 1, Appearance -> 
+         "Labeled"}, {$CellContext`L$$, 100, 
+         DirectedInfinity[1], 10, Appearance -> "Labeled"}}, 
+      "Options" :> {
+       FrameLabel -> 
+        "Plot of \!\(\*TemplateBox[<|\"boxes\" -> \
+FormBox[RowBox[{FractionBox[StyleBox[\"i\", \"TI\"], RowBox[{\"4\", \
+SqrtBox[RowBox[{\"2\", \"\[Epsilon]\", StyleBox[\"L\", \"TI\"]}]]}]], \
+FractionBox[StyleBox[\"L\", \"TI\"], RowBox[{\"2\", \"\[Pi]\"}]], \
+SuperscriptBox[RowBox[{\"[\", \
+RowBox[{FractionBox[RowBox[{SuperscriptBox[RowBox[{\"(\", \
+SuperscriptBox[StyleBox[\"k\", \"TI\"], \"+\"], \")\"}], \"2\"], StyleBox[\"L\
+\", \"TI\"]}], RowBox[{\"2\", \"\[Epsilon]\"}]], \"+\", \
+SuperscriptBox[StyleBox[\"m\", \"TI\"], \"2\"]}], \"]\"}], RowBox[{\"-3\", \
+\"/\", \"2\"}]]}], TraditionalForm], \"errors\" -> {}, \"input\" -> \
+\"\\\\frac{i}{4\\\\sqrt{2\\\\epsilon \
+L}}\\\\frac{L}{2\\\\pi}\\\\left[\\\\frac{(k^{+})^2L}{2\\\\epsilon}+m^2\\\\\
+right]^{-3/2}\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) Vs. \
+\!\(\*TemplateBox[<|\"boxes\" -> FormBox[SuperscriptBox[StyleBox[\"k\", \
+\"TI\"], \"+\"], TraditionalForm], \"errors\" -> {}, \"input\" -> \"k^+\", \
+\"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\"]\) for \!\(\*TemplateBox[<|\
+\"boxes\" -> FormBox[\"\[Epsilon]\", TraditionalForm], \"errors\" -> {}, \
+\"input\" -> \"\\\\epsilon\", \"state\" -> \"Boxes\"|>,\"TeXAssistantTemplate\
+\"]\) and L limits"}, "DefaultOptions" :> {}],
+     ImageSizeCache->{408., {214., 220.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellFrame->{{0, 0}, {3, 0}},
+ CellFrameColor->GrayLevel[0.75],
+ CellChangeTimes->{3.854293317253525*^9, 3.854294595952835*^9, 
+  3.854381542824614*^9, 3.854381582472166*^9, 3.8543816191245127`*^9, 
+  3.854381661098201*^9},
+ TextAlignment->Center,
+ CellLabel->"Out[36]=",ExpressionUUID->"a6cefdfd-4bd6-4f9a-a286-3da90f4af4cc"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1440, 847},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+SpellingDictionaries->{"CorrectWords"->{"Hari", "Hariprashad"}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (December 2, 2021)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]]}, Visible -> False, 
+  FrontEndVersion -> "13.0 for Mac OS X ARM (64-bit) (December 2, 2021)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"d5cf362a-a7c3-4279-ace5-0c0e30bf5752"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 12579, 341, 730, "Title",ExpressionUUID->"a53873fd-81c0-4d1e-9721-5c7a41099d5d"],
+Cell[CellGroupData[{
+Cell[13184, 367, 4712, 132, 194, "Input",ExpressionUUID->"12370172-8350-4374-b241-70d7e73dc2c0"],
+Cell[17899, 501, 4560, 84, 453, "Output",ExpressionUUID->"c3ab1b20-4226-40e6-ae41-a403c47e8f7a"]
+}, Open  ]],
+Cell[22474, 588, 10600, 317, 98, "Input",ExpressionUUID->"887f32b8-49ec-48d6-80fc-cc93d86a0b37"],
+Cell[CellGroupData[{
+Cell[33099, 909, 5913, 164, 218, "Input",ExpressionUUID->"776a671d-ef4c-4396-be3d-31777182b9f7"],
+Cell[39015, 1075, 4853, 89, 453, "Output",ExpressionUUID->"a9da421f-6a20-4694-87c4-a11165b6d903"]
+}, Open  ]],
+Cell[43883, 1167, 152, 3, 30, "Input",ExpressionUUID->"701a957d-0cc8-4353-8c34-d159f40ffb21"],
+Cell[44038, 1172, 3239, 89, 161, "Subsubsection",ExpressionUUID->"b76faac9-3ca3-465d-97d8-52e827223f90"],
+Cell[CellGroupData[{
+Cell[47302, 1265, 3686, 103, 78, "Subsection",ExpressionUUID->"0556f2c6-0b45-440a-b88a-1898c3109452"],
+Cell[CellGroupData[{
+Cell[51013, 1372, 4781, 137, 199, "Input",ExpressionUUID->"43c179a4-8fc5-4cef-bf91-f2b5201c590a"],
+Cell[55797, 1511, 4562, 83, 476, "Output",ExpressionUUID->"67270573-9c4b-4693-b463-8a628e122b75"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60408, 1600, 2039, 56, 186, "Section",ExpressionUUID->"e9cf956d-ed40-4bc4-9485-185c43d2936b"],
+Cell[CellGroupData[{
+Cell[62472, 1660, 6109, 170, 218, "Input",ExpressionUUID->"1d81f77a-d824-4a8b-8566-9e959e149a49"],
+Cell[68584, 1832, 5066, 92, 464, "Output",ExpressionUUID->"a6cefdfd-4bd6-4f9a-a286-3da90f4af4cc"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
